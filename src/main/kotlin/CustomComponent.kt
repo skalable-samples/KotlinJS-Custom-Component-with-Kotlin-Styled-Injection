@@ -1,6 +1,4 @@
-import react.RBuilder
-import react.RComponent
-import react.RState
+import react.*
 import styled.CustomStyledProps
 import styled.css
 import styled.styledDiv
@@ -21,22 +19,23 @@ external interface CustomComponentProps : CustomStyledProps {
  * A data class can be used as a state
  * class to maintain the state of a component
  */
-data class CustomComponentState(
+external interface CustomComponentState : RState {
     var name: String
-) : RState
+}
 
 /**
  * We extend from RComponent and tell it the types of Props and State to expect internally.
  *
  * This is our custom component.
  */
+@JsExport
 class CustomComponent(props: CustomComponentProps) : RComponent<CustomComponentProps, CustomComponentState>(props) {
 
     /**
      * To begin, we set the initial state to the name in the prop we injected.
      */
-    init {
-        state = CustomComponentState(props.name)
+    override fun CustomComponentState.init(props: CustomComponentProps) {
+        name = props.name
     }
 
     override fun RBuilder.render() {
