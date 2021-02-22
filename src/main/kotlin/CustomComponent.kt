@@ -16,8 +16,8 @@ external interface CustomComponentProps : CustomStyledProps {
 }
 
 /**
- * A data class can be used as a state
- * class to maintain the state of a component
+ * An interface is also used as a state
+ * so we can maintain the state of a component.
  */
 external interface CustomComponentState : RState {
     var name: String

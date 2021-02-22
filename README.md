@@ -119,6 +119,12 @@ Before we use our new extensions and `CustomSyledProps` though, we need to creat
 this example `state` is here for extensibility purposes in the future)_
 
 ```kotlin
+import react.*
+import styled.CustomStyledProps
+import styled.css
+import styled.styledDiv
+import util.css
+
 /**
  * We use an interface to inject in props. It allows us to create
  * clean DSL builders for our custom components.
@@ -131,25 +137,26 @@ external interface CustomComponentProps : CustomStyledProps {
 }
 
 /**
- * A data class can be used as a state
- * class to maintain the state of a component
+ * An interface is also used as a state
+ * so we can maintain the state of a component.
  */
-data class CustomComponentState(
+external interface CustomComponentState : RState {
    var name: String
-) : RState
+}
 
 /**
  * We extend from RComponent and tell it the types of Props and State to expect internally.
  *
  * This is our custom component.
  */
+@JsExport
 class CustomComponent(props: CustomComponentProps) : RComponent<CustomComponentProps, CustomComponentState>(props) {
 
    /**
     * To begin, we set the initial state to the name in the prop we injected.
     */
-   init {
-      state = CustomComponentState(props.name)
+   override fun CustomComponentState.init(props: CustomComponentProps) {
+      name = props.name
    }
 
    override fun RBuilder.render() {
@@ -158,8 +165,6 @@ class CustomComponent(props: CustomComponentProps) : RComponent<CustomComponentP
             /**
              * We make use of our CustomStyledProps extension function by
              * setting the from the returned value RuleSet.
-             *
-             * '+' operator is used to append the style to the existing.
              */
             +props.css()
          }
