@@ -7,8 +7,8 @@
 
 At Skalable we love Kotlin!  We work with it at both the frontend and backend.  
 
-One aspect of Kotlin we are most excited by in terms of potential is Kotlin Multiplatform (KMM). We have recently been
-doing some work on improving the usability of KMM in a way that creates a friendly environment for engineers working on
+One aspect of Kotlin we are most excited by in terms of potential is Kotlin Multiplatform (KMP). We have recently been
+doing some work on improving the usability of KMP in a way that creates a friendly environment for engineers working on
 building web apps using Kotlin. This article helps to explain what we have built.
 
 Reusing components is no easy feat for newcomers, it can take a deep understanding of various frameworks and patterns of
