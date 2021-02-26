@@ -1,4 +1,6 @@
 ![image](https://storage.googleapis.com/skalable.appspot.com/logo.png)
+
+[![Kotlin JS IR supported](https://img.shields.io/badge/Kotlin%2FJS-IR%20supported-yellow)](https://kotl.in/jsirsupported)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.txt)
 
 # Custom Component with Injected Kotlin Styled CSS
